@@ -1,0 +1,17 @@
+{
+    "name": "mini-database-engine-backend",
+    "version": "1.0.0",
+    "description": "Backend server for Mini Database Engine",
+    "main": "server.js",
+    "scripts": {
+        "build": "npm --prefix \"../Mini-database engine frontend\" install && npm --prefix \"../Mini-database engine frontend\" run build",
+        "start": "node server.js",
+        "dev": "node --watch server.js"
+    },
+    "dependencies": {
+        "better-sqlite3": "^11.7.0",
+        "cors": "^2.8.5",
+        "express": "^4.21.0",
+        "uuid": "^11.1.0"
+    }
+}
