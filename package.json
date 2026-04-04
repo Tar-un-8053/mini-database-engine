@@ -1,0 +1,14 @@
+{
+  "name": "mini-database-engine-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Render fallback package for monorepo root deploys",
+  "scripts": {
+    "postinstall": "npm --prefix \"Mini-database engine backend\" install && npm --prefix \"Mini-database engine frontend\" install && npm --prefix \"Mini-database engine frontend\" run build",
+    "build": "npm --prefix \"Mini-database engine frontend\" run build",
+    "start": "npm --prefix \"Mini-database engine backend\" start"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
