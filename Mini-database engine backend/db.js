@@ -2,16 +2,34 @@ const Database = require('better-sqlite3');
 const fs = require('fs');
 const path = require('path');
 
-const DB_PATH = process.env.DB_PATH || path.join(__dirname, 'mini_database.db');
+const DEFAULT_DB_PATH = path.join(__dirname, 'mini_database.db');
+const CONFIGURED_DB_PATH = process.env.DB_PATH || DEFAULT_DB_PATH;
 
 let db;
 
+function openDatabase(dbPath) {
+  fs.mkdirSync(path.dirname(dbPath), { recursive: true });
+  const instance = new Database(dbPath);
+  instance.pragma('journal_mode = WAL');
+  instance.pragma('foreign_keys = ON');
+  return instance;
+}
+
 function getDb() {
   if (!db) {
-    fs.mkdirSync(path.dirname(DB_PATH), { recursive: true });
-    db = new Database(DB_PATH);
-    db.pragma('journal_mode = WAL');
-    db.pragma('foreign_keys = ON');
+    try {
+      db = openDatabase(CONFIGURED_DB_PATH);
+    } catch (error) {
+      // Fallback avoids crashes when DB_PATH points to an unwritable mount.
+      if (process.env.DB_PATH && CONFIGURED_DB_PATH !== DEFAULT_DB_PATH) {
+        console.warn(
+          `[DB] Failed to open DB at ${CONFIGURED_DB_PATH}: ${error.message}. Falling back to ${DEFAULT_DB_PATH}`
+        );
+        db = openDatabase(DEFAULT_DB_PATH);
+      } else {
+        throw error;
+      }
+    }
     seedDatabase();
   }
   return db;
