@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "description": "Render fallback package for monorepo root deploys",
   "scripts": {
-    "postinstall": "npm --prefix \"Mini-database engine backend\" install && npm --prefix \"Mini-database engine frontend\" install && npm --prefix \"Mini-database engine frontend\" run build",
-    "build": "npm --prefix \"Mini-database engine frontend\" run build",
+    "postinstall": "npm --prefix \"Mini-database engine backend\" install && npm --prefix \"Mini-database engine frontend\" install && node \"Mini-database engine frontend/node_modules/vite/bin/vite.js\" build \"Mini-database engine frontend\"",
+    "build": "npm --prefix \"Mini-database engine frontend\" install && node \"Mini-database engine frontend/node_modules/vite/bin/vite.js\" build \"Mini-database engine frontend\"",
     "start": "npm --prefix \"Mini-database engine backend\" start"
   },
   "engines": {
