@@ -1,6 +1,6 @@
 # BuildDB - Mini Database Engine
 
-A simplified Database Management System (DBMS) for educational purposes, demonstrating core database concepts including persistent storage, indexing, query parsing, execution, and transaction management.
+A simplified Database Management System (DBMS)  for educational purposes, demonstrating core database concepts including persistent storage, indexing, query parsing, execution, and transaction management.
 
 ## 🎯 Overview
 
