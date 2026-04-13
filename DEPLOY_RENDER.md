@@ -38,3 +38,4 @@ Use the backend folder as the Render service root:
 
 - The frontend uses `/api` by default, so it works automatically when the backend serves it.
 - If you deploy frontend and backend separately later, set `VITE_API_BASE_URL` in the frontend build environment.
+
