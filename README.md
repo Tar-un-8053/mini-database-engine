@@ -6,6 +6,7 @@ A simplified Database Management System (DBMS)  for educational purposes, demons
 
 BuildDB is a minimal but functional database engine that implements the fundamental components of a real DBMS like MySQL or SQLite. It's designed for **educational value** rather than performance, making database internals clear and understandable.
 
+
 ## 🏗️ Architecture
 
 BuildDB consists of five core components:
