@@ -487,6 +487,7 @@ This is an educational project. Feel free to:
 
 Free to use for educational purposes.
 
+
 ---
 
 **Remember**: BuildDB is a teaching tool. For production use, rely on mature database systems like PostgreSQL, MySQL, or SQLite.
